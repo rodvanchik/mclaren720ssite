@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>MCLAREN 720S GT3 EVO</title>
+		<link rel = 'stylesheet' type = 'text/css' href = 'styles/style.css'>
+		<link rel = 'stylesheet' type = 'text/css' href = 'styles/home.css'
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type = 'text/javascript' src = 'jQuery.js'></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<img src = 'icons/menu.png' alt = 'Home' class = 'menu_but'>
+				<ul class = 'nav_list'>
+					<li><a href = 'info/' class = 'buttons'>Info</a></li>
+					<li><a href = 'login/' class = 'buttons'>Login</a></li>
+				</ul>
+			</nav>
+			<h3 class = 'head_name'>MCLAREN 720S GT3 EVO</h3>
+			<a href = 'https://www.mclaren.com' target = '_blank'><img src = 'src/logo.jpg' class = 'logo'></a>
+		</header>
+		<div class = 'video-box'>
+			<video class = 'video' autoplay muted loop>
+				<source src = 'src/mclaren-gt3evo.mp4' type = 'video/mp4'>
+			</video>
+			<div class = 'video_caption'>
+				<span>McLaren 720s GT3 Evo - </span>
+				<span> ULTIMATE RACING CAR</span>
+			</div>
+			<div class = 'bottom-bar'>
+				<span class = 'info_but'>
+					<a href = 'info/' class = 'buttons_video'>Read more</a>
+				</span>
+				<span class = 'play'>
+					<button class = 'play_but' id = 'play_but'>
+						<svg class="icon-pause" viewBox="0 0 24 24" width="24" height="24">
+							<rect x="6" y="4" width="4" height="16" fill="white"></rect>
+							<rect x="14" y="4" width="4" height="16" fill="white"></rect>
+						</svg>
+						<svg class="icon-play" viewBox="0 0 24 24" width="24" height="24">
+							<polygon points="6,4 20,12 6,20" fill="white"></polygon>
+						</svg>
+				</button></span>
+			</div>
+		</div>
+		<footer>
+			<a class = 'contact_but' href = 'info/contacts/'>Contacts</a>
+		</footer>
+
+		<script>
+			$(document).ready(function() {
+				$('.nav_list').hide();
+				let nav_open = 0;
+				$('.menu_but').click(function() {
+					$('.nav_list').toggle(500);
+				});
+
+				$('#play_but').click(function() {
+					let video = $('.video').get(0);
+
+					if (video.paused) {
+						video.play();
+					}
+					else {
+						video.pause();
+					}
+
+					$(this).toggleClass('is-paused')
+				});
+			})
+		</script>
+
+	</body>
+</html>

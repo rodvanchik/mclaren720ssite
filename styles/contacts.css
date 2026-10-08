@@ -1,0 +1,59 @@
+.contacts-main {
+	background:none;
+	box-shadow: none;
+	flex: 1 0 auto;
+}
+
+.feedback {
+	width: 700px;
+	height: 100%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.check-box {
+	flex-direction:row;
+	background: none;
+	box-shadow: none;
+	margin: auto;
+}
+
+#submit-but {
+	border-radius: 20px;
+	margin: 5px;
+	background: none;
+	border: 2px solid black;
+	padding: 5px;
+	font-size: 15px;
+}
+
+#submit-but:hover {
+	background: black;
+	color: white;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.check_first {
+	display:flex;
+	background: none;
+	box-shadow: none;
+	align-items:center;
+	width: 70%;
+}
+
+.check_second {
+	width: 70%;
+	display:flex;
+	background: none;
+	box-shadow: none;
+	align-items:center;
+}
+
+@media(max-width: 768px) {
+	.feedback {
+		width: 500px;
+	}
+}
