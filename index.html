@@ -10,14 +10,19 @@
 		<header>
 			<nav>
 				<img src = 'icons/menu.png' alt = 'Home' class = 'menu_but'>
-				<ul class = 'nav_list'>
-					<li><a href = 'info/' class = 'buttons'>Info</a></li>
-					<li><a href = 'login/' class = 'buttons'>Login</a></li>
-				</ul>
+
 			</nav>
 			<h3 class = 'head_name'>MCLAREN 720S GT3 EVO</h3>
 			<a href = 'https://www.mclaren.com' target = '_blank'><img src = 'src/logo.jpg' class = 'logo'></a>
 		</header>
+
+		<div class = 'down_menu'>
+			<ul class = 'nav_list'>
+					<li><a href = 'info/' class = 'buttons'>Info</a></li>
+					<li><a href = 'login/' class = 'buttons'>Login</a></li>
+			</ul>
+		</div>
+
 		<div class = 'video-box'>
 			<video class = 'video' autoplay muted loop>
 				<source src = 'src/mclaren-gt3evo.mp4' type = 'video/mp4'>
@@ -43,15 +48,14 @@
 			</div>
 		</div>
 		<footer>
-			<a class = 'contact_but' href = 'info/contacts/'>Contacts</a>
+			<a class = 'buttons' href = 'info/contacts/'>Contacts</a>
 		</footer>
 
 		<script>
 			$(document).ready(function() {
-				$('.nav_list').hide();
-				let nav_open = 0;
+
 				$('.menu_but').click(function() {
-					$('.nav_list').toggle(500);
+					$('.down_menu').slideToggle(500);
 				});
 
 				$('#play_but').click(function() {

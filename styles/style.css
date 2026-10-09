@@ -42,7 +42,7 @@ nav {
 }
 
 .nav_list {
-	margin-left: 0px;
+	margin-left: 5px;
 	padding: 0;
 	list-style-type: none;
 	display:flex;
@@ -51,6 +51,7 @@ nav {
 }
 
 .menu_but {
+	display: none;
 	cursor: pointer;
 	margin: auto;
 	margin-left: 10px;
@@ -74,13 +75,18 @@ div {
 	margin: 0;
 }
 
+.down_menu {
+	display: none;
+}
+
 .buttons {
-	font-size: 12px;
+	margin: 5px;
+	font-size: 16px;
 	display:inline-block;
-	width:50px;
+	width:80px;
 	text-decoration: none;
 	color: black;
-	font-family: verdana;
+	font-family: Arial;
 	border: 2px solid black;
 	border-radius: 20px;
 	padding: 5px;
@@ -124,22 +130,6 @@ footer {
 	border-radius: 20px;
 	padding: 5px;
 	height: auto;
-}
-
-.contact_but {
-	margin-top:10px;
-	align-content:center;
-	font-size: 12px;
-	display:inline-block;
-	height:auto;
-	text-decoration: none;
-	color: black;
-	font-family: verdana;
-	border: 2px solid black;
-	border-radius: 20px;
-	padding: 5px;
-	margin: 10px;
-	align-self: flex-end;
 }
 
 .info_first {
@@ -196,13 +186,28 @@ form {
 		font-size: 30px;
 	}
 
+	.down_menu {
+		width: auto;
+		margin: 0;
+		height: auto;
+		display: flex;
+		border-radius: 0;
+		position: fixed;
+		box-shadow: none;
+		z-index: 1000;
+		top: 150px;
+	}
+
 	.nav_list {
+		margin: 30px;
+		flex-direction: column;
 		align-items: center;
 	}
 
 	.buttons {
-		font-size: 25px;
-		width: 100px;
+		padding: 20px;
+		font-size: 50px;
+		width: auto;
 	}
 	
 	.buttons2 {
@@ -225,4 +230,27 @@ form {
 		width: 100%;
 		max-width: 750px;
 	}
+
+	.menu_but {
+		height: 100px;
+		display: block;
+	}
+}
+
+@media (min-width: 1025px) {
+
+	.down_menu {
+		display: flex !important;
+		position: fixed;
+		z-index: 1000;
+		background: none;
+		border: none;
+		box-shadow: none;
+		top: 0;
+	}
+
+	.nav_list {
+		margin: 0;
+	}
+
 }

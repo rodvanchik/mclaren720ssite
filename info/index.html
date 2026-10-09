@@ -10,14 +10,18 @@
 		<header>
 			<nav>
 				<img src = '../icons/menu.png' alt = 'Home' class = 'menu_but'>
-				<ul class = 'nav_list'>
-					<li><a href = '../' class = 'buttons'>Home</a></li>
-					<li><a href = '../login/' class = 'buttons'>Login</a></li>
-				</ul>
+
 			</nav>
 			<h3 class = 'head_name'>MCLAREN 720S GT3 EVO</h3>
 			<a href = 'https://www.mclaren.com' target = '_blank'><img src = '../src/logo.jpg' class = 'logo'></a>
 		</header>
+
+		<div class = 'down_menu'>
+			<ul class = 'nav_list'>
+					<li><a href = '../' class = 'buttons'>Home</a></li>
+					<li><a href = '../login/' class = 'buttons'>Login</a></li>
+			</ul>
+		</div>
 		<div class = 'text-image'>
 			<div class = 'mclaren_img_first'><img src = '../src/mclaren1.jpg' alt = 'mclaren 720 gt3 evo' class = 'first_img'></div>
 			<div class = 'text-box'>
@@ -86,13 +90,7 @@
 		</footer>
 
 		<script>
-			$(document).ready(function() {
-				$('.nav_list').hide();
-				let nav_open = 0;
-				$('.menu_but').click(function() {
-					$('.nav_list').toggle(500);
-				});
-			})
+
 		</script>
 
 	</body>
