@@ -1,4 +1,9 @@
-
+body {
+	background: url(../src/back.jpg);
+	background-repeat: repeat;
+	background-size: cover;
+	opacity: 0.9;
+}
 .login-page {
 	flex: 1 0 auto;
 	display:flex;
@@ -11,31 +16,36 @@
 	max-height: 500px;
 }
 
+input {
+	color: var(--text-color);
+}
+
 .login-form h3 {
 	font-family: arial;
 	font-size: 25px;
 	margin: auto;
 }
 
-#email, #password {
+#email, #password, #phone-number {
 	background: transparent;
-	outline: 2px solid white;
+	outline: 2px solid var(--text-color);
 }
 
 .submit-btn {
-	border: 2px solid black;
+	border: 2px solid var(--text-color);
 	border-radius: 20px;
-	background: #ffffff;
+	background: var(--bg-color);
 	padding: 5px;
 	font-family: arial;
 	font-size:20px;
 	margin-top: 10px;
-	width:100px;
+	width:auto;
+	color: var(--text-color);
 }
 
 .submit-btn:hover {
 	cursor: pointer;
-	background: black;
-	color: white;
+	background: var(--bg-color);
+	color: var(--text-color);
 	transition: 0.3s;
 }

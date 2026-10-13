@@ -5,22 +5,27 @@
 		<link rel = 'stylesheet' type = 'text/css' href = '../styles/login.css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type = 'text/javascript' src = '../jQuery.js'></script>
+		<script type = 'text/javascript' src = '../script.js'></script>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<img src = '../icons/menu.png' alt = 'Home' class = 'menu_but'>
-				<ul class = 'nav_list'>
-					<li><a href = '../' class = 'buttons'>Home</a></li>
-					<li><a href = '../info/' class = 'buttons'>Info</a></li>
-				</ul>
+				<img src = 'icons/menu.png' alt = 'Home' class = 'menu_but'>
+
 			</nav>
 			<h3 class = 'head_name'>MCLAREN 720S GT3 EVO</h3>
-			<a href = 'https://www.mclaren.com' target = '_blank'><img src = '../src/logo.jpg' class = 'logo'></a>
+			<a href = 'https://www.mclaren.com' target = '_blank'><img src = '../src/logo.png' class = 'logo'></a>
 		</header>
+
+		<div class = 'down_menu'>
+			<ul class = 'nav_list'>
+					<li><a href = 'info/' class = 'buttons'>Info</a></li>
+					<li><a href = 'login/' class = 'buttons'>Login</a></li>
+			</ul>
+		</div>
 		
 		<div class = 'login-page'>
-			<form class = 'login-form' action = '../' method = 'POST'>
+			<form class = 'login-form' action = '../'>
 				<h3>Увійти</h3>
 				
 				<div class = 'input'>
@@ -34,23 +39,26 @@
 				</div>
 				
 				<button type = 'submit' class = 'submit-btn'>Увійти</button>
-				<p class = 'register_link'>Ще не зареєстровані? <a href =  'register/index.html'>Зареєструйтесь зараз!</a></p>
+				<p class = 'register_link'>Ще не зареєстровані? <a href =  '../register/'>Зареєструйтесь зараз!</a></p>
 			</form>
 		</div>
 		
 		<footer>
-			<a class = 'contact_but' href = '../contacts/'>Contacts</a>
+			<a class = 'buttons' href = '../info/contacts/'>Contacts</a>
+			<label class="theme-switch">
+				<input type="checkbox" id="theme-checkbox">
+				<div class="slider-track">
+					<svg class="icon-moon" viewBox="0 0 24 24">
+						<path fill="#f1c40f" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+					<svg class="icon-sun" viewBox="0 0 24 24">
+						<circle cx="12" cy="12" r="5" fill="#f39c12"></circle>
+						<path fill="#f39c12" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+					</svg>
+					<div class="slider-knob"></div>
+				</div>
+			</label>
 		</footer>
-
-		<script>
-			$(document).ready(function() {
-				$('.nav_list').hide();
-				let nav_open = 0;
-				$('.menu_but').click(function() {
-					$('.nav_list').toggle(500);
-				});
-			})
-		</script>
 
 	</body>
 </html>
