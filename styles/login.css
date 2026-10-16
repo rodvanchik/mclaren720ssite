@@ -1,19 +1,20 @@
+* {
+	overflow-wrap: break-word;
+}
+
 body {
 	background: url(../src/back.jpg);
 	background-repeat: repeat;
 	background-size: cover;
 	opacity: 0.9;
 }
+
 .login-page {
 	flex: 1 0 auto;
 	display:flex;
 	justify-content:center;
 	align-items: center;
 	margin: auto;
-	width: 100%;
-	max-width: 500px;
-	height: 100%;
-	max-height: 500px;
 }
 
 input {

@@ -263,7 +263,7 @@ th, td {
 
 @media (max-width: 1024px) {
 	* {
-		font-size: 60px;
+		font-size: 30px;
 	}
 	
 	.table1 tr, td, th {
@@ -271,8 +271,15 @@ th, td {
 	}
 
 	.play_but {
-		margin: 70px;
-		margin-top: 0px;
+		flex: 1 0;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		width: auto;
+	}
+
+	.info_but {
+		flex: 1 0 auto;
 	}
 
 	.play_but svg {
@@ -289,7 +296,15 @@ th, td {
 		margin-bottom: 150px;
 	}
 
+	.bottom-bar {
+		margin: auto;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.info_but a {
-		width: 400px;
+		margin: 50px;
+		width: auto;
 	}
 }
