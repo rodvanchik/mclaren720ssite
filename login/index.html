@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>Login/Register</title>
+		<meta charset="UTF-8">
 		<link rel = 'stylesheet' type = 'text/css' href = '../styles/style.css'>
 		<link rel = 'stylesheet' type = 'text/css' href = '../styles/login.css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +29,7 @@
 		</div>
 		
 		<div class = 'login-page'>
-			<form class = 'login-form' action = '../'>
+			<form class = 'login-form' id = 'login-form'>
 				<h3>Увійти</h3>
 				
 				<div class = 'input'>
@@ -44,6 +45,7 @@
 				<button type = 'submit' class = 'submit-btn'>Увійти</button>
 				<p class = 'register_link'>Ще не зареєстровані? <a href =  '../register/'>Зареєструйтесь зараз!</a></p>
 			</form>
+			<div id="form-message" style="text-align: center; margin-top: 15px; font-weight: bold;"></div>
 		</div>
 		
 		<footer>
@@ -62,5 +64,36 @@
 				</div>
 			</label>
 		</footer>
+
+		<script>
+			$(document).ready(function() {
+                
+                $(document).on('submit', '#login-form', function(event) {
+                    event.preventDefault();
+
+                    const userData = {
+                        email: $('#email').val(),
+                        password: $('#password').val()
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '../backend/login.php',
+                        data: userData,
+                        success: function(response) {
+                            if(response.error) {
+                                $('#form-message').text(response.error).css('color', 'red');
+                            } else {
+                                $('#form-message').text(response.message).css('color', 'green');
+                                $('#login-form')[0].reset();
+                            }
+                        },
+                        error: function() {
+                            $('#form-message').text('Сталася помилка зв\'язку з сервером.').css('color', 'red');
+                        }
+                    });
+                });
+            });
+		</script>
 	</body>
 </html>

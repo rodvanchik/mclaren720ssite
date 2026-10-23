@@ -38,33 +38,60 @@ $(document).ready(function() {
 					$(this).toggleClass('is-paused')
 				});
 
-  $('.modal').hide();
-  const carsData = {
-    "720s": {
+  let carsDatabase = [
+    {
+      id: "720s",
       name: "McLaren 720S GT3 EVO",
       image: "../src/720s.jpg",
-      specs: [
-        "<span>Двигун:</span> M840T 4.0L Twin-Turbo V8",
-        "<span>Потужність:</span> Обмежена регламентом FIA",
-        "<span>Трансмісія:</span> 6-ступенева секвентальна",
-        "<span>Вага:</span> ~1240 кг"
-      ]
+      specs: ["Двигун: M840T 4.0L Twin-Turbo V8", "Вага: ~1240 кг"]
     },
-    "p1": {
+    {
+      id: "p1",
       name: "McLaren P1",
       image: "../src/p1.jpg",
-      specs: [
-        "<span>Двигун:</span> 3.8L Twin-Turbo V8 + Електромотор",
-        "<span>Потужність:</span> 903 к.с.",
-        "<span>Розгін 0-100:</span> 2.8 сек",
-        "<span>Макс. швидкість:</span> 350 км/год"
-      ]
-    }
-  };
+      specs: ["Двигун: 3.8L V8 Гібрид", "Потужність: 903 к.с."]
+    },
+    {
+      id: "720s",
+      name: "McLaren 720S GT3 EVO",
+      image: "../src/720s.jpg",
+      specs: ["Двигун: M840T 4.0L Twin-Turbo V8", "Вага: ~1240 кг"]
+    },
+    {
+      id: "720s",
+      name: "McLaren 720S GT3 EVO",
+      image: "../src/720s.jpg",
+      specs: ["Двигун: M840T 4.0L Twin-Turbo V8", "Вага: ~1240 кг"]
+    },
+    {
+      id: "720s",
+      name: "McLaren 720S GT3 EVO",
+      image: "../src/720s.jpg",
+      specs: ["Двигун: M840T 4.0L Twin-Turbo V8", "Вага: ~1240 кг"]
+    },
+  ];
 
-  $('.car-card').on('click', function() {
-    const carId = $(this).attr('data-car');
-    const carInfo = carsData[carId];
+  function renderCatalog(carsArray) {
+    const $container =$('#catalog-container');
+    $container.empty(); 
+
+    carsArray.forEach(function(car) {
+      const cardHtml = `
+        <div class="car-card" data-id="${car.id}">
+          <img src="${car.image}" alt="${car.name}">
+          <h3>${car.name}</h3>
+          <button class="btn-specs">Характеристики</button>
+        </div>
+      `;
+      $container.append(cardHtml);
+    });
+  }
+
+  renderCatalog(carsDatabase);
+
+  $('#catalog-container').on('click', '.car-card', function() {
+    const carId = $(this).attr('data-id');
+    const carInfo = carsDatabase.find(c => c.id === carId);
 
     if(carInfo) {
       $('#modal-title').text(carInfo.name);
@@ -79,14 +106,9 @@ $(document).ready(function() {
     }
   });
 
-  $('.close-btn').on('click', function() {
-    $('#car-modal').fadeOut(300);
-  });
-
-  $('#car-modal').on('click', function(event) {
-    if ($(event.target).is('#car-modal')) {
-      $(this).fadeOut(300);
+  $('.close-btn, #car-modal').on('click', function(e) {
+    if (e.target === this) {
+      $('#car-modal').fadeOut(300);
     }
   });
-
 });

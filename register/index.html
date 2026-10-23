@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>MCLAREN 720S GT3 EVO</title>
+		<meta charset="UTF-8">
 		<link rel = 'stylesheet' type = 'text/css' href = '../styles/style.css'>
 		<link rel = 'stylesheet' type = 'text/css' href = '../styles/login.css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +27,7 @@
 		</div>
 
         <div class = 'register-form'>
-           <form  action = '../login/' class = 'login-form'>
+           <form id="register-form" class = 'login-form'>
 				<h3>Реєстрація</h3>
 				
 				<div class = 'input'>
@@ -36,7 +37,7 @@
 
                 <div class = 'input'>
 				<label for = 'phone-number'>Номер телефону</label>
-				<input type = 'phone-number' id = 'phone-number' name = 'phone-number' required>
+				<input type = 'tel' id = 'phone-number' name = 'phone-number' required>
 				</div>
 				
 				<div class = 'input'>
@@ -46,6 +47,7 @@
 				
 				<button type = 'submit' class = 'submit-btn'>Зареєструватись</button>
 			</form>
+			<div id="form-message" style="text-align: center; margin-top: 15px; font-weight: bold;"></div>
         </div>
 
 		<footer>
@@ -64,5 +66,37 @@
 				</div>
 			</label>
 		</footer>
+
+		<script>
+            $(document).ready(function() {
+                
+                $(document).on('submit', '#register-form', function(event) {
+                    event.preventDefault();
+
+                    const userData = {
+                        email: $('#email').val(),
+                        phone: $('#phone-number').val(),
+                        password: $('#password').val()
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '../backend/register.php',
+                        data: userData,
+                        success: function(response) {
+                            if(response.error) {
+                                $('#form-message').text(response.error).css('color', 'red');
+                            } else {
+                                $('#form-message').text(response.message).css('color', 'green');
+                                $('#register-form')[0].reset();
+                            }
+                        },
+                        error: function() {
+                            $('#form-message').text('Сталася помилка зв\'язку з сервером.').css('color', 'red');
+                        }
+                    });
+                });
+            });
+        </script>
 	</body>
 </html>
