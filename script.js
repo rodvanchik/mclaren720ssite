@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    $('.down_menu').hide();
-    $('.menu_but').click(function() {
-        $('.down_menu').slideToggle(500);
-    });
+  $('.down_menu').hide();
+  $('.menu_but').click(function() {
+      $('.down_menu').slideToggle(500);
+  });
 
-    $('.nav_list a').click(function() {
-        $('.down_menu').slideToggle(500);
-    });
+  $('.nav_list a').click(function() {
+      $('.down_menu').slideToggle(500);
+  });
 
   if (localStorage.getItem('site-theme') === 'dark') {
     $('body').addClass('dark-theme');
@@ -14,7 +14,7 @@ $(document).ready(function() {
     if ($('#theme-checkbox').length) {
       $('#theme-checkbox').prop('checked', true);
     }
-  }
+  };
   $('#theme-checkbox').on('change', function() {
     $('body').toggleClass('dark-theme');
 
@@ -48,14 +48,8 @@ $(document).ready(function() {
     {
       id: "p1",
       name: "McLaren P1",
-      image: "../src/p1.jpg",
+      image: "../src/p1.jpg", 
       specs: ["Двигун: 3.8L V8 Гібрид", "Потужність: 903 к.с."]
-    },
-    {
-      id: "720s",
-      name: "McLaren 720S GT3 EVO",
-      image: "../src/720s.jpg",
-      specs: ["Двигун: M840T 4.0L Twin-Turbo V8", "Вага: ~1240 кг"]
     },
     {
       id: "720s",
@@ -72,7 +66,7 @@ $(document).ready(function() {
   ];
 
   function renderCatalog(carsArray) {
-    const $container =$('#catalog-container');
+    const $container = $('#catalog-container');
     $container.empty(); 
 
     carsArray.forEach(function(car) {
@@ -85,9 +79,26 @@ $(document).ready(function() {
       `;
       $container.append(cardHtml);
     });
-  }
+  };
 
   renderCatalog(carsDatabase);
+
+  /*$.ajax({  
+    url: '../backend/catalog.php',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      if(data.error) {
+        console.error(data.error);
+      } else {
+        carsDatabase = data;
+        renderCatalog(carsDatabase);
+      }
+    },
+    error: function() {
+      console.error("помилка");
+    }
+  })*/
 
   $('#catalog-container').on('click', '.car-card', function() {
     const carId = $(this).attr('data-id');

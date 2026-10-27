@@ -67,5 +67,19 @@
 				</div>
 			</label>
 		</footer>
+
+		<script>
+			$.ajax ({
+				url: 'backend/database.php',
+				type: 'GET',
+				success: function(response) {
+				console.log("База даних ініціалізована");
+				},
+				error: function() {
+				console.error("Помилка підключення до бази даних");
+				}
+			});
+
+		</script>
 	</body>
 </html>
