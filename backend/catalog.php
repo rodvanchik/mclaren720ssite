@@ -1,32 +1,50 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mclarensite";
+session_start();
 
-try {
-    $conn = new mysqli($servername, $username, $password, $dbname);
+header('Content-Type: application/json; charset=utf-8');
+require 'database.php';
+
+$stmt = $conn->prepare("SELECT car_id, car_name, car_image, car_specs FROM catalog");
+$stmt->execute();
+$result = $stmt->get_result();
+
+$cars = [];
+
+while ($row = $result->fetch_assoc()) {
+    $row['car_specs'] = json_decode($row['car_specs'], true);
+    
+    $cars[] = $row;
 }
-catch(Exception $e) {
-    echo "Connection failed" , $e->getMessage();
+echo json_encode($cars);
+
+
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+    echo json_encode(['error' => 'Немає прав']);
+    exit;
 }
 
-try {
-    $sql = "SELECT * FROM catalog";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $car_id = $_POST['car_id'] ?? '';
 
-    $cars = $conn->query($sql);
-
-    foreach($cars as $car) {
-        $car['car-specs'] = json_encode($car['car-specs'], true);
-
-        $car['id'] = car['car-id'];
+    if (empty($car_id)) {
+        echo json_encode(['error' => 'Немає ID']);
+        exit;
     }
 
-    echo json_encode($cars);
+    $stmt = $conn->prepare("DELETE FROM catalog WHERE car_id = ?");
+    $stmt->bind_param("s", $car_id);
+
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true, 'message' => 'Видалено!']);
+        exit;
+    } else {
+        echo json_encode(['error' => 'Помилка бази даних!']);
+        exit;
+    }
 }
-catch(Exception $e) {
-    echo json_encode(['error' => 'Помилка підключення']);
-}
+
+$stmt->close();
+$conn->close();
 
 ?>

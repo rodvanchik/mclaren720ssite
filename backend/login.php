@@ -23,16 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $check = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $check = $conn->prepare("SELECT id, password, is_admin FROM users WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
 
     $result = $check->get_result();
 
     if ($row = $result->fetch_assoc()) {
-        if ($password === $row['password']) {
+        if (password_verify($password, $row['password'])) {
             $_SESSION['user_id'] = $row['id'];
-            echo json_encode(['success' => true, 'message' => 'Вхід успішно виконано!']);
+            $_SESSION['is_admin'] = $row['is_admin'];
+            $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1;
+            if($row['is_admin'] == 1) {
+                echo json_encode(['success' => true, 'is_admin' => $is_admin, 'message' => 'Вхід як адміна успішно виконано!']);
+            } else {
+                echo json_encode(['success' => true, 'message' => 'Вхід успішно виконано!']);
+            }
         } else {
             echo json_encode(['error' => 'Неправильний пароль!']);
         }

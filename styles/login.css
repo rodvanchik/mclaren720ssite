@@ -27,6 +27,12 @@ input {
 	margin: auto;
 }
 
+.form-message {
+	color: var(--text-color);
+	font-weight: bold;
+	padding: 5px;
+}
+
 #email, #password, #phone-number {
 	background: transparent;
 	outline: 2px solid var(--text-color);

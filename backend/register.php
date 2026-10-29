@@ -24,9 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
+
     $exe = $conn->prepare("INSERT INTO users (email, phone_number, password) VALUES (?, ?, ?)");
 
-    $exe->bind_param("sss", $email, $phone, $password);
+    $exe->bind_param("sss", $email, $phone, $hashedpassword);
 
     if ($exe->execute()) {
         echo json_encode(['success' => true, 'message' => 'Реєстрація успішна!']);
