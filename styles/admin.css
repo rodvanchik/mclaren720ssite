@@ -1,0 +1,11 @@
+body {
+    background-color: var(--bg-color);
+}
+
+div {
+    margin: 10px;
+}
+
+input {
+    padding: 5px;
+}

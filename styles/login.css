@@ -1,0 +1,58 @@
+* {
+	overflow-wrap: break-word;
+}
+
+body {
+	background: url(../src/back.jpg);
+	background-repeat: repeat;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+.login-page {
+	flex: 1 0 auto;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	margin: auto;
+}
+
+input {
+	color: var(--text-color);
+}
+
+.login-form h3 {
+	font-family: arial;
+	font-size: 25px;
+	margin: auto;
+}
+
+.form-message {
+	color: var(--text-color);
+	font-weight: bold;
+	padding: 5px;
+}
+
+#email, #password, #phone-number {
+	background: transparent;
+	outline: 2px solid var(--text-color);
+}
+
+.submit-btn {
+	border: 2px solid var(--text-color);
+	border-radius: 20px;
+	background: var(--bg-color);
+	padding: 5px;
+	font-family: arial;
+	font-size:20px;
+	margin-top: 10px;
+	width:auto;
+	color: var(--text-color);
+}
+
+.submit-btn:hover {
+	cursor: pointer;
+	background: var(--bg-color);
+	color: var(--text-color);
+	transition: 0.3s;
+}
