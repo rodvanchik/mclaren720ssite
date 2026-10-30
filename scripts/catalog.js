@@ -85,7 +85,7 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url: '/mclaren720s/backend/catalog.php',
+            url: '/mclaren720s/backend/delete_car.php',
             type: 'POST',
             data: {car_id: carId},
             dataType: 'json',

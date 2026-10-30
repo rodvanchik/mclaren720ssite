@@ -30,18 +30,24 @@
 			</ul>
 		</div>
 
-        <div id = 'catalog-add'>
-            <h3>ADD CAR TO CATALOG</h3>
-            <form id='add-car-form' method = 'POST'>
-                <input type="text" id="add-id" placeholder="Унікальний ID (напр. senna)" required> 
-                <input type="text" id="add-name" placeholder="Назва авто" required>
-                <input type="text" id="add-image" placeholder="Шлях до фото (напр. ../src/senna.jpg)" required>
-                <input type="text" id="add-specs" placeholder="Характеристики (через кому)">
-                <button type = 'submit' class = 'buttons'>ADD</button>
-                <div id="add-car-message"></div>
-            </form>
-        </div>
+		<div class = 'admin-container'>
+			<div id = 'catalog-add'>
+				<h3>ADD CAR TO CATALOG</h3>
+				<form id='add-car-form' method = 'POST'>
+					<input type="text" id="add-id" placeholder="Унікальний ID (напр. senna)" required> 
+					<input type="text" id="add-name" placeholder="Назва авто" required>
+					<input type="text" id="add-image" placeholder="Шлях до фото (напр. ../src/senna.jpg)" required>
+					<input type="text" id="add-specs" placeholder="Характеристики (через кому)">
+					<button type = 'submit' class = 'buttons'>ADD</button>
+					<div id="add-car-message"></div>
+				</form>
+			</div>
 
+			<div id = 'contact-messages'>
+				<h3>CONTACT MESSAGES</h3>
+				<div id="contact-message-list"></div>
+			</div>
+		</div>
 		<footer>
 			<a class = 'buttons' href = '../info/contacts/'>Contacts</a>
 			<label class="theme-switch">

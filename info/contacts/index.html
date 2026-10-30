@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MCLAREN 720S GT3 EVO</title>
+		<meta charset="UTF-8">
+		<link rel = 'stylesheet' type = 'text/css' href = '../../styles/style.css'>
+		<link rel = 'stylesheet' type = 'text/css' href = '../../styles/home.css'>
+        <link rel = 'stylesheet' type = 'text/css' href = '../../styles/contacts.css'>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type = 'text/javascript' src = '../../scripts/jQuery.js'></script>
+		<script type = 'text/javascript' src = '../../scripts/script.js'></script>
+        <script type = 'text/javascript' src = '../../scripts/contact.js'></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<img src = '../../icons/menu.png' alt = 'Home' class = 'menu_but'>
+
+			</nav>
+			<h3 class = 'head_name'>MCLAREN 720S GT3 EVO</h3>
+			<a href = 'https://www.mclaren.com' target = '_blank'><img src = '../../src/logo.png' class = 'logo'></a>
+		</header>
+
+		<div class = 'down_menu'>
+			<ul class = 'nav_list'>
+					<li><a href = '../../info/' class = 'buttons'>Info</a></li>
+					<li><a href = '../../login/' id = 'nav-login' class = 'buttons'>Login</a></li>
+					<li><a href = '../../catalog/' class = 'buttons'>Catalog</a></li>
+					<li><a href = '#' id='nav-logout' class = 'buttons' style ="display:none;">Log out</a></li>
+					<li><a href = '../../admin/' id='nav-admin-panel' class = 'buttons' style ="display:none;">Admin Panel</a></li>
+			</ul>
+		</div>
+
+        <div>
+            <form id = 'contact-form' method = 'POST'>
+                <label>Ваше Ім'я</label>
+                <input type = 'text' name = 'name' id = 'name' required>
+
+                <label>Як з вам зв'язатись</label>
+                <select name = 'how-to-contact' id = 'how-to-contact' required>
+                    <option value="email">Email</option>
+                    <option value="phone">Телефон</option>
+                    <option value="other">Інше</option>
+                </select>
+                <input type = 'text' name = 'contact-option' id = 'contact-option' required>
+                
+                <label>Вкажіть тему звернення:</label>
+                <select name = 'type-of-contact' id = 'type-of-contact'>
+                    <option value="account">Аккаунт</option>
+                    <option value="visual">Проблема з виглядом сайту</option>
+                    <option value="features">Ваші ідеї для покращення</option>
+                    <option value="other">Інше</option>
+                </select>
+                <input type = 'text' name = 'otherDetails' id = 'otherDetails' placeholder="Впишіть проблему сюди..." required>
+
+                <div id="form-message" class = 'form-message'></div>
+
+                <button id = 'contact-but' type = 'submit'>Відправити</button>
+            </form>
+        </div>
+
+		<footer>
+			<a class = 'buttons' href = '../../info/contacts/'>Contacts</a>
+			<label class="theme-switch">
+				<input type="checkbox" id="theme-checkbox">
+				<div class="slider-track">
+					<svg class="icon-moon" viewBox="0 0 24 24">
+						<path fill="#f1c40f" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+					<svg class="icon-sun" viewBox="0 0 24 24">
+						<circle cx="12" cy="12" r="5" fill="#f39c12"></circle>
+						<path fill="#f39c12" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+					</svg>
+					<div class="slider-knob"></div>
+				</div>
+			</label>
+		</footer>
+	</body>
+</html>

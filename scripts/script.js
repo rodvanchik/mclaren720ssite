@@ -68,7 +68,7 @@ $(document).ready(function() {
             url: '/mclaren720s/backend/logout.php',
             type: 'GET',
             success: function() {
-                window.location.reload(); 
+              window.location.href = 'login/'; 
             }
         });
     });

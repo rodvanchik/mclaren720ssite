@@ -5,76 +5,29 @@ body {
 	opacity: 0.9;
 }
 
-.contacts-main {
-	background:none;
-	box-shadow: none;
-	flex: 1 0;
+select {
+    padding: 5px;
+    border-radius: 10px;
 }
 
-.feedback {
-	width: 700px;
-	height: 100%;
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	margin: auto;
-}
-
-#submit-but {
-	width: 200px;
-}
-
-.check-box {
-	flex-direction:row;
-	background: none;
-	box-shadow: none;
-	margin: auto;
-}
-
-#submit-but {
+#contact-but {
+	color: --var(--text-color);
+	background: --var(--bg-color);
 	border-radius: 20px;
 	margin: 5px;
-	background: none;
-	border: 2px solid black;
 	padding: 5px;
 	font-size: 15px;
 }
 
-#submit-but:hover {
-	background: black;
-	color: white;
+#contact-but:hover {
+	background: --var(--text-color);
+	color: --var(--bg-color);
 	cursor: pointer;
 	transition: 0.3s;
 }
 
-.check_first {
-	display:flex;
-	background: none;
-	box-shadow: none;
-	align-items:center;
-	width: 70%;
-}
-
-.check_second {
-	width: 70%;
-	display:flex;
-	background: none;
-	box-shadow: none;
-	align-items:center;
-}
-
 @media(max-width: 1024px) {
-	.feedback {
+	#contact-but {
 		width: 100%;
-		height: auto;
-	}
-
-	h4 {
-		font-size: 15px;
-	}
-
-	a {
-		width: 100px;
-		height: auto;
 	}
 }

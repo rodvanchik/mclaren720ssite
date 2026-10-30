@@ -23,6 +23,7 @@ $(document).ready(function() {
                     } else {
                         console.log("Новий користувач зайшов", userData['email']);
                     }
+                    window.location.href = '../';
                 }
             },
             error: function() {
@@ -50,6 +51,7 @@ $(document).ready(function() {
                 } else {
                     $('#form-message').text(response.message).css('background-color', 'green');
                     $('#register-form')[0].reset();
+                    window.location.href = '../';
                 }
             },
             error: function() {
